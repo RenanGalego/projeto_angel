@@ -3,6 +3,13 @@ import speech_recognition as sr
 from gtts import gTTS
 from playsound import playsound
 
+#Cria uma voz de resposta
+def voz_ia (audio):
+    tts = gTTS(audio, lang='pt-br')
+    tts.save('audios/hello.mp3')
+    print("Estou aprendendo")
+    playsound('audios/hello.mp3')
+
 #Cria um reconhecedor
 def ouvir_mic():
     mic = sr.Recognizer()
@@ -18,4 +25,5 @@ def ouvir_mic():
         print("Entendi não")
         return frase
 
-ouvir_mic()
+frase = ouvir_mic()
+voz_ia(frase)
